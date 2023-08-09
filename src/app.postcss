@@ -1,0 +1,145 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--red: #ff6663;
+	--orange: #feb144;
+	--yellow: #fdfd97;
+	--green: #9ee09e;
+	--blue: #9ec1cf;
+	--violet: #cc99c9;
+	--gradient-image: linear-gradient(
+			to right,
+			#ff6663,
+			#feb144,
+			#fdfd97,
+			#9ee09e,
+			#9ec1cf,
+			#cc99c9,
+			#9ec1cf,
+			#9ee09e,
+			#fdfd97,
+			#feb144,
+			#ff6663
+		)
+		0 0 / 400% 100%;
+}
+
+@layer components {
+	.rounded-full {
+		border-radius: 80px;
+	}
+}
+
+html,
+body {
+	background: black;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+a {
+	text-decoration: underline;
+	color: white 75%;
+}
+
+* {
+	color: white;
+	overflow-x: visible;
+}
+
+input {
+	background-color: black;
+	border: white solid;
+	border-radius: 20px;
+	text-align: center;
+	width: 70vw;
+	transition: all 0.5s ease;
+
+	&:focus {
+		outline: none;
+		border-radius: 80px;
+	}
+}
+
+::-webkit-scrollbar {
+	width: 28px;
+	height: 0px;
+	color: black;
+}
+::-webkit-scrollbar-track {
+	background: linear-gradient(to bottom, #ff6663, #feb144, #fdfd97, #9ee09e, #9ec1cf, #cc99c9) 0 0 / 100% 100%;
+}
+::-webkit-scrollbar-thumb {
+	border: 10px solid black;
+	border-radius: 20px;
+	background: transparent;
+	background-clip: padding-box;
+	box-shadow: 0px 0px 0px 100000vh black;
+}
+
+::-webkit-scrollbar-corner {
+	color: black;
+}
+
+button {
+	color: white;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 15px;
+	border: medium solid white;
+	transition: border-radius 0.5s ease, background 0.5s ease, border-color 0.5s ease, all 0.5s ease;
+
+	&:hover {
+		border-radius: 30px;
+		border-color: black;
+		background-color: white;
+		color: black;
+		box-shadow: 7px 7px #ffffff;
+	}
+
+	&:active {
+		background-color: black;
+		color: white;
+	}
+
+	&.gradient-text:hover {
+		border-color: white;
+		background-color: black;
+		color: white;
+	}
+}
+
+@keyframes MOVING-GRADIENT-TEXT {
+	to {
+		background-position: 400% 0;
+	}
+}
+
+.gradient-text,
+.links-footer a,
+hr {
+	color: rgba(255, 255, 255, 25%);
+	display: inline;
+	background-size: 400% auto;
+	background: var(--gradient-image);
+	background-clip: text;
+	transition: all 0.5s ease;
+	animation: MOVING-GRADIENT-TEXT 15s infinite linear;
+
+	&a:hover {
+		color: rgba(255, 255, 255, 75%);
+	}
+}
+
+hr {
+	height: 5px;
+	border-radius: 3px;
+	display: flex;
+	background-origin: content-box;
+	color: transparent;
+	background-clip: content-box;
+	margin: 30px 3.2rem 30px 3.2rem;
+}
